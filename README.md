@@ -1,2 +1,2 @@
 # pytorchDetection
-联系基于Pytorch的目标识别，主要
+练习基于Pytorch的目标识别

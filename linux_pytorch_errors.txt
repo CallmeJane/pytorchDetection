@@ -1,0 +1,52 @@
+1.查看linux版本
+cat /etc/issue
+2.python version chooose
+(1)update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+update-alternatives: using /usr/bin/python2.7 to provide /usr/bin/python (python) in auto mode
+(2)update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
+update-alternatives: using /usr/bin/python3.4 to provide /usr/bin/python (python) in auto mode
+(3)update-alternatives --list python
+(4)update-alternatives --config python(3)
+3.PPA打使用
+https://zhuanlan.zhihu.com/p/55250294
+4.pyhton source install
+(1)sudo apt-get install zlib1g-dev
+在./configure过程中，如果没有加上–with-ssl参数时，默认安装的软件涉及到ssl的功能不可用
+(2)https://blog.csdn.net/tao_627/article/details/90901830
+(3)sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 2
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+sudo update-alternatives --config python3
+5.git下载别人的代码
+用公钥：git@*
+不用公钥：http://
+6.torch安装
+https://pypi.org/project/torchvision/0.2.1/
+https://download.pytorch.org/whl/cpu/torch_stable.html(torch1.0.0)
+pip3 install torchvision==0.2.1
+7.python包管理：
+ 推荐使用virtuenv或者virtualenvwrapper创建虚拟环境去管理包，virtualenvwrapper使用还是很方便的，当然，你也可以直接使用pycharm去创建虚拟环境。
+virtualenvwrapper安装： pip install virtualenvwrapper
+8.
+pip3 install torchvision==0.2.1 -i https://mirrors.aliyun.com/pypi/simple/  --trusted-host mirrors.aliyun.com
+pip3 install scipy==1.2.0 -i https://mirrors.aliyun.com/pypi/simple/  --trusted-host mirrors.aliyun.com
+
+pip3 install readline -i https://mirrors.aliyun.com/pypi/simple/  --trusted-host mirrors.aliyun.com
+9.python install without -with-ssl参数
+https://blog.csdn.net/weixin_30647065/article/details/101528774
+在./configure过程中，如果没有加上–with-ssl参数时，默认安装的软件涉及到ssl的功能不可用，
+刚好pip3过程需要ssl模块，而由于没有指定，所以该功能不可用
+10.pyhton egg打包
+https://www.cnblogs.com/kungfupanda/p/3343113.html
+https://www.cnblogs.com/potato-chip/p/9106225.html（setup.py的详细参数）
+11.pretrain model(download)
+https://www.cnblogs.com/ywheunji/p/10605614.html
+12.make own VOC set
+https://www.jianshu.com/p/3c980b3bf60f（制作自己的数据集）
+(主要是将自己的图片和标签处理voc数据集格式)
+http://www.bubuko.com/infodetail-2649549.html?__cf_chl_jschl_tk__=d22b453eb12da1dad21f963ef3742b03235a71c3-1588497850-0-AdOHx8Nbk8DRG0vHZeZ6uWwoqFT52K7nFZfBy1zCnG7zAkKCe-Q_PR9rPvdRjxFXr7oDCwp-VeY47slJFtOWqICAIN4jAuLyhISKxG9NkZasNIYN1R6RhkjOkIxK6J43iZ_Gt6chfb91Zx8vVyygyIj0Z4o2PRfQMT5kpZcBj9SIAG3H1gmGrS6SLV5rWxwDFZP6MwPaY2ZYyoJSSm9tXaG9xTdZcKN04Dfiz-2Pbd6zlKzfgmcGj8bvaiXLyEA8t0KJY2AYj87EWcjodY5bhGcUCiEGJyojA70hZQQz9hSDK0cFCxujWc6O5_c8uX_9Og
+13.解决ImportError: cannot import name 'imread' from 'scipy.misc'
+https://blog.csdn.net/celina0321/article/details/94617813
+14.If you want to use pytorch pre-trained models, please remember to transpose images from BGR to RGB, and also use the same data transformer (minus mean and normalize) as used in pretrained model.
+./lib/model/utils/blob.py
+https://github.com/jwyang/faster-rcnn.pytorch/issues/10（问题解决）
+
